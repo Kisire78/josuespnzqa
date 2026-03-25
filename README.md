@@ -28,5 +28,5 @@ Ingeniero en informática enfocado en QA y automatización.
 - Automatización básica
 
 ## 📞 Contacto
-- LinkedIn: (pon tu link)
-- Email: (tu correo)
+- LinkedIn: (https://www.linkedin.com/in/josue-espinoza-a05a53324/)
+- Email: (ksre78@gmail.com)
