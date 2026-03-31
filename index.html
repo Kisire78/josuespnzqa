@@ -1,78 +1,356 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jose Espinoza | QA Portfolio</title>
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: #e2e8f0;
-      margin: 0;
-      padding: 20px;
+      background: linear-gradient(180deg, #081120 0%, #0b1730 100%);
+      color: #e5e7eb;
+      line-height: 1.6;
     }
-    h1, h2 {
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 80px 0 50px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .tag {
+      display: inline-block;
+      width: fit-content;
+      background: rgba(56, 189, 248, 0.12);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: 44px;
+      line-height: 1.1;
+      color: #ffffff;
+    }
+
+    .hero h1 span {
       color: #38bdf8;
     }
-    .container {
-      max-width: 800px;
-      margin: auto;
+
+    .subtitle {
+      font-size: 20px;
+      color: #cbd5e1;
+      max-width: 760px;
     }
-    .card {
-      background: #1e293b;
-      padding: 15px;
-      margin-bottom: 15px;
+
+    .hero-text {
+      max-width: 760px;
+      color: #94a3b8;
+      font-size: 17px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .btn {
+      text-decoration: none;
+      padding: 12px 18px;
       border-radius: 10px;
+      font-weight: bold;
+      transition: 0.2s ease;
+      display: inline-block;
     }
-    a {
+
+    .btn-primary {
+      background: #38bdf8;
+      color: #081120;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      opacity: 0.95;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #e5e7eb;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.06);
+    }
+
+    section {
+      padding: 60px 0;
+    }
+
+    h2 {
+      font-size: 30px;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    .section-text {
+      max-width: 850px;
+      color: #94a3b8;
+      font-size: 17px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 24px;
+      transition: 0.2s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(56, 189, 248, 0.28);
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 14px;
+      color: #ffffff;
+    }
+
+    .card p {
+      color: #cbd5e1;
+      margin-bottom: 14px;
+      font-size: 15px;
+    }
+
+    .card ul {
+      padding-left: 18px;
+      color: #94a3b8;
+      margin-bottom: 18px;
+    }
+
+    .card li {
+      margin-bottom: 8px;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .pill {
+      background: rgba(56, 189, 248, 0.1);
+      color: #7dd3fc;
+      border: 1px solid rgba(56, 189, 248, 0.22);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 14px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .contact-box {
+      margin-top: 20px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 24px;
+      max-width: 650px;
+    }
+
+    .contact-box p {
+      margin-bottom: 10px;
+      color: #cbd5e1;
+    }
+
+    .contact-box a {
       color: #38bdf8;
       text-decoration: none;
+    }
+
+    footer {
+      padding: 30px 0 50px;
+      color: #64748b;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 700px) {
+      h1 {
+        font-size: 34px;
+      }
+
+      .subtitle {
+        font-size: 18px;
+      }
+
+      h2 {
+        font-size: 26px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>👨‍💻 Jose Espinoza - QA Portfolio</h1>
-    <p>Ingeniero en informática enfocado en QA y automatización.</p>
+  <header>
+    <div class="container hero">
+      <span class="tag">QA Portfolio</span>
+      <h1>Hola, soy <span>Jose Espinoza</span></h1>
+      <p class="subtitle">Ingeniero en informática enfocado en QA, testing y automatización.</p>
+      <p class="hero-text">
+        Estoy construyendo experiencia práctica en pruebas funcionales, testing de APIs, automatización y mejora de procesos.
+        Mi objetivo es aportar calidad, orden y pensamiento analítico en equipos de desarrollo y aseguramiento de calidad.
+      </p>
 
-    <h2>🧪 Proyectos</h2>
-
-    <div class="card">
-      <h3>Automatización con Python y Shodan</h3>
-      <ul>
-        <li>Script para monitoreo de IPs</li>
-        <li>Integración con API</li>
-        <li>Base de datos</li>
-        <li>Alertas automáticas</li>
-      </ul>
+      <div class="hero-buttons">
+        <a class="btn btn-primary" href="#proyectos">Ver proyectos</a>
+        <a class="btn btn-secondary" href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+        <a class="btn btn-secondary" href="https://github.com/" target="_blank">GitHub</a>
+      </div>
     </div>
+  </header>
 
-    <div class="card">
-      <h3>Testing de APIs con Postman</h3>
-      <ul>
-        <li>Creación de colecciones</li>
-        <li>Validación de endpoints</li>
-        <li>Pruebas funcionales</li>
-      </ul>
+  <section>
+    <div class="container">
+      <h2>Sobre mí</h2>
+      <p class="section-text">
+        Me interesa el mundo del QA porque combina análisis, validación, mejora continua y una mirada detallista sobre cómo funcionan los sistemas.
+        He trabajado en proyectos personales y académicos donde he aplicado testing, automatización con Python, validación de APIs y organización de procesos.
+      </p>
     </div>
+  </section>
 
-    <div class="card">
-      <h3>Testing de sitio web</h3>
-      <ul>
-        <li>Casos de prueba</li>
-        <li>Identificación de bugs</li>
-        <li>Mejoras UX</li>
-      </ul>
+  <section id="proyectos">
+    <div class="container">
+      <h2>Proyectos</h2>
+
+      <div class="projects-grid">
+        <div class="card">
+          <h3>Automatización con Python y Shodan</h3>
+          <p>
+            Proyecto orientado al monitoreo y consulta automatizada de información técnica, reduciendo tareas manuales repetitivas.
+          </p>
+          <ul>
+            <li>Desarrollo de scripts para monitoreo de IPs</li>
+            <li>Integración con API</li>
+            <li>Almacenamiento en base de datos</li>
+            <li>Alertas automáticas</li>
+          </ul>
+          <div class="tech-stack">
+            <span class="pill">Python</span>
+            <span class="pill">API</span>
+            <span class="pill">MySQL</span>
+            <span class="pill">Automatización</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Testing de APIs con Postman</h3>
+          <p>
+            Práctica de validación de servicios mediante pruebas funcionales y revisión de respuestas para distintos endpoints.
+          </p>
+          <ul>
+            <li>Creación y organización de colecciones</li>
+            <li>Validación de endpoints</li>
+            <li>Pruebas funcionales</li>
+            <li>Revisión de respuestas y flujos</li>
+          </ul>
+          <div class="tech-stack">
+            <span class="pill">Postman</span>
+            <span class="pill">Testing API</span>
+            <span class="pill">QA</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Testing de sitio web</h3>
+          <p>
+            Análisis de funcionamiento, usabilidad y validación de escenarios clave dentro de una aplicación web.
+          </p>
+          <ul>
+            <li>Diseño de casos de prueba</li>
+            <li>Identificación de bugs</li>
+            <li>Validación de experiencia de usuario</li>
+            <li>Propuestas de mejora</li>
+          </ul>
+          <div class="tech-stack">
+            <span class="pill">Testing Manual</span>
+            <span class="pill">UX</span>
+            <span class="pill">Web QA</span>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <h2>🛠️ Habilidades</h2>
-    <p>Python | Postman | SQL | Testing Manual | Automatización</p>
+  <section>
+    <div class="container">
+      <h2>Habilidades</h2>
+      <div class="skills">
+        <span class="pill">Python</span>
+        <span class="pill">Postman</span>
+        <span class="pill">SQL</span>
+        <span class="pill">Testing Manual</span>
+        <span class="pill">Automatización básica</span>
+        <span class="pill">Casos de prueba</span>
+        <span class="pill">QA mindset</span>
+      </div>
+    </div>
+  </section>
 
-    <h2>📞 Contacto</h2>
-    <p>
-      LinkedIn: <a href="#">https://www.linkedin.com/in/josue-espinoza-a05a53324/?skipRedirect=true</a><br>
-      Email: ksre78@gmail.com
-    </p>
-  </div>
+  <section>
+    <div class="container">
+      <h2>+56 9 5761 8897</h2>
+      <div class="contact-box">
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/" target="_blank">https://www.linkedin.com/in/josue-espinoza-a05a53324/?skipRedirect=true</a></p>
+        <p><strong>GitHub:</strong> <a href="https://github.com/" target="_blank">Agrega aquí tu GitHub</a></p>
+        <p><strong>Email:</strong> ksre78@gmail.com/p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Jose Espinoza | QA Portfolio</p>
+    </div>
+  </footer>
 </body>
 </html>
